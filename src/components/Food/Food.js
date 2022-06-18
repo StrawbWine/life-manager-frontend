@@ -1,8 +1,18 @@
+import axios from "axios"
 import React from "react"
 
 import styles from "./Food.module.css"
+import DeleteButton from "../Buttons/DeleteButton/DeleteButton"
 
-const Food = ({ foodProps }) => {
+const Food = ({ foodProps, getFoods }) => {
+
+  const API_URL = process.env.REACT_APP_API_URL
+
+  const deleteFood = async () => {
+    await axios.delete(`${API_URL}/food/${foodProps.id}`)
+    getFoods()
+  }
+
   return (
     <div className={styles.Food}>
       <ul className={styles.ul}>
@@ -18,6 +28,7 @@ const Food = ({ foodProps }) => {
         <li>Salt: {foodProps.salt}</li>
         <li>Fiber: {foodProps.fiber}</li>
       </ul>
+      <DeleteButton onClick={deleteFood} />
     </div>
   )
 }
