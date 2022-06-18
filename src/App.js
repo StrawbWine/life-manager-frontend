@@ -1,23 +1,16 @@
-import logo from './logo.svg';
+import React from "react"
 import './App.css';
+import useApi from "./hooks/useApi";
+import FoodContainer from "./components/FoodContainer/FoodContainer";
 
 function App() {
+  const API_URL = process.env.REACT_APP_API_URL
+
+  const [foodData, getFoodData, setFoodData] = useApi(`${API_URL}/food`)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <FoodContainer foodArray={foodData} />
     </div>
   );
 }
