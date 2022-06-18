@@ -4,8 +4,8 @@ import styles from "./Food.module.css"
 
 const Food = ({ foodProps }) => {
   return (
-    <div>
-      <ul>
+    <div className={styles.Food}>
+      <ul className={styles.ul}>
         <li className={styles.Name}>{foodProps.name}</li>
         <li>Energy: {foodProps.energy}</li>
         <li>Fat: {foodProps.fat}</li>
