@@ -10,6 +10,13 @@
   background-color: rgb(247, 246, 238);
 }
 
+.FoodSelected {
+  border: 1px solid black;
+  margin: 2px;
+  border-radius: 5px;
+  background-color: rgb(210, 247, 177);
+}
+
 .Name {
   font-size: 1.2rem;
   color: red;

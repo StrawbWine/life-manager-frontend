@@ -4,7 +4,7 @@ import React from "react"
 import styles from "./Food.module.css"
 import DeleteButton from "../Buttons/DeleteButton/DeleteButton"
 
-const Food = ({ foodProps, getFoods }) => {
+const Food = ({ foodProps, getFoods, setActiveFood, selected }) => {
 
   const API_URL = process.env.REACT_APP_API_URL
 
@@ -13,8 +13,12 @@ const Food = ({ foodProps, getFoods }) => {
     getFoods()
   }
 
+  const setActive = () => {
+    setActiveFood(foodProps.id)
+  }
+
   return (
-    <div className={styles.Food}>
+    <div className={selected ? styles.FoodSelected : styles.Food} onClick={setActive}>
       <ul className={styles.ul}>
         <li className={styles.Name}>{foodProps.name}</li>
         <li>Energy: {foodProps.energy}</li>
