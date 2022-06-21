@@ -1,0 +1,9 @@
+.CreateFoodPortionForm {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin: 20px;
+  border: solid 1px black;
+  padding: 10px;
+  border-radius: 3px;
+}

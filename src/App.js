@@ -3,6 +3,7 @@ import './App.css';
 import useApi from "./hooks/useApi";
 import FoodContainer from "./components/FoodContainer/FoodContainer";
 import CreateFoodForm from "./components/CreateFoodForm/CreateFoodForm";
+import CreateFoodPortionForm from "./components/CreateFoodPortionForm/CreateFoodPortionForm";
 
 function App() {
   const API_URL = process.env.REACT_APP_API_URL
@@ -18,7 +19,10 @@ function App() {
         activeFood={activeFood} 
         setActiveFood={setActiveFood}
       />
-      <CreateFoodForm getFoods={getFoodData} />
+      <div className="Forms" style={{display: "flex"}}>
+        <CreateFoodForm getFoods={getFoodData} />
+        <CreateFoodPortionForm activeFood={activeFood} />
+      </div>
     </div>
   );
 }
