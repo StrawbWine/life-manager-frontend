@@ -1,0 +1,15 @@
+.Navbar {
+  min-height: 10vh;
+  background-color: grey;
+}
+
+.NavbarUl {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.NavbarUl > li {
+  font-size: x-large;
+}
