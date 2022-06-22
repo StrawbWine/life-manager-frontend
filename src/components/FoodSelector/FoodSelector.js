@@ -1,15 +1,18 @@
 import React from "react"
 
 import FoodSelectorButton from "../Buttons/FoodSelectorButton/FoodSelectorButton"
+import styles from "./FoodSelector.module.css"
 
-const FoodSelector = ({ foodData, activeFood }) => {
+const FoodSelector = ({ foodData, activeFood, setActiveFood }) => {
 
   return (
-    <div className="FoodSelector">
+    <div className={styles.FoodSelector}>
       {foodData.map(food => 
-        <FoodSelectorButton 
+        <FoodSelectorButton
+          foodId={food.id}
           foodName={food.name} 
-          active={food.id === activeFood} 
+          active={food.id === activeFood}
+          setActive={setActiveFood}
           key={food.id} 
         />)        
       }

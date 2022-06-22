@@ -13,7 +13,7 @@ const FoodPortionPage = () => {
 
   return (
     <div className="FoodPortionPage">
-      <FoodSelector foodData={foodData} activeFood={activeFood} />
+      <FoodSelector foodData={foodData} activeFood={activeFood} setActiveFood={setActiveFood} />
       <CreateFoodPortionForm activeFood={activeFood} />
     </div>
   )
