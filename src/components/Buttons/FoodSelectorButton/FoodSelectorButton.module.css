@@ -1,0 +1,20 @@
+.FoodSelectorButton {
+  border: 1px solid black;
+  margin: 3px;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px; 
+}
+
+.FoodSelectorButtonActive {
+  border: 1px solid black;
+  margin: 3px;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: lawngreen;
+}
+
+.FoodName {
+  margin: 5px;
+}

@@ -1,9 +1,14 @@
 import React from "react"
+import styles from "./FoodSelectorButton.module.css"
 
-const FoodSelectorButton = ({ foodName }) => {
+const FoodSelectorButton = ({ foodId, foodName, active, setActive }) => {
+  const handleClick = () => {
+    setActive(foodId)
+  }
+
   return (
-    <div className="FoodSelectorButton">
-      <p>{foodName}</p>
+    <div className={active ? styles.FoodSelectorButtonActive : styles.FoodSelectorButton} onClick={handleClick}>
+      <p className={styles.FoodName}>{foodName}</p>
     </div>
   )
 }
