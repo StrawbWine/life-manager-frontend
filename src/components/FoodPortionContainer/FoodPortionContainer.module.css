@@ -1,0 +1,4 @@
+.FoodPortionContainer {
+  display: flex;
+  flex-wrap: wrap;
+}

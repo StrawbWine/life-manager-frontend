@@ -1,0 +1,17 @@
+.FoodPortion {
+  font-size: small;
+  border: 1px solid black;
+  margin: 2px;
+  border-radius: 3px;
+  padding: 3px;
+  background-color:cornsilk
+}
+
+ul {
+  list-style: none;
+  padding: 5px;
+}
+
+label {
+  font-style: italic;
+}
