@@ -2,7 +2,7 @@ import axios from "axios"
 import React from "react"
 import styles from "./CreateFoodPortionForm.module.css"
 
-const CreateFoodPortionForm = ({ activeFood }) => {
+const CreateFoodPortionForm = ({ activeFood, getFoodPortionData }) => {
   const API_URL = process.env.REACT_APP_API_URL
 
   const handleSubmit = async event =>  {
@@ -11,9 +11,9 @@ const CreateFoodPortionForm = ({ activeFood }) => {
       foodId: activeFood,
       weightInGrams: document.getElementById("weight-input").value,
       dateConsumed: new Date()
-    }
-    console.log(activeFood)
+    }    
     await axios.post(`${API_URL}/foodportion`, newFoodPortion)
+    getFoodPortionData()
   }
 
   return (
