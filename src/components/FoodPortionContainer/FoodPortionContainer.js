@@ -6,7 +6,12 @@ import FoodPortion from "../FoodPortion/FoodPortion"
 const FoodPortionContainer = ({ foodPortionData, getFoodPortionData }) => {
   return (
     <div className={styles.FoodPortionContainer}>
-      {foodPortionData.map(foodPortion => <FoodPortion data={foodPortion} getFoodPortionData={getFoodPortionData} />)}
+      {foodPortionData.map(foodPortion => 
+        <FoodPortion 
+          key={foodPortion.id} 
+          data={foodPortion} 
+          getFoodPortionData={getFoodPortionData} 
+        />)}
     </div>
   )
 }
