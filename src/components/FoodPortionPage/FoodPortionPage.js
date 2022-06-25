@@ -4,6 +4,7 @@ import Calendar from "react-calendar"
 import 'react-calendar/dist/Calendar.css';
 import axios from "axios"
 
+import styles from "./FoodPortionPage.module.css"
 import FoodSelector from "../FoodSelector/FoodSelector"
 import useApi from "../../hooks/useApi"
 import CreateFoodPortionForm from "../CreateFoodPortionForm/CreateFoodPortionForm"
@@ -27,11 +28,13 @@ const FoodPortionPage = () => {
     }
   }
   return (
-    <div className="FoodPortionPage">
+    <div className={styles.FoodPortionPage}>
       <FoodSelector foodData={foodData} activeFood={activeFood} setActiveFood={setActiveFood} />
-      <CreateFoodPortionForm activeFood={activeFood} getFoodPortionData={getFoodPortionData} />
-      <FoodPortionContainer foodPortionData={foodPortionData} getFoodPortionData={getFoodPortionData} />
-      <Calendar onChange={calendarOnChange} value={date} />      
+      <div className={styles.FoodPortionForms}>
+        <CreateFoodPortionForm activeFood={activeFood} getFoodPortionData={getFoodPortionData} />
+        <Calendar onChange={calendarOnChange} value={date} />   
+      </div>
+      <FoodPortionContainer foodPortionData={foodPortionData} getFoodPortionData={getFoodPortionData} />         
     </div>
   )
 }
