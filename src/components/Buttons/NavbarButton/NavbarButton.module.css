@@ -1,0 +1,15 @@
+.NavbarButton {
+  background-color: rgb(172, 237, 242);
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 8px;
+  /* box-shadow: 0 0 5px 5px; */
+}
+
+.NavbarButtonActive {
+  background-color: rgb(172, 237, 242);
+  border: 1px solid black;
+  border-radius: 3px;
+  padding: 8px;
+  box-shadow: 0 0 5px 5px;
+}
