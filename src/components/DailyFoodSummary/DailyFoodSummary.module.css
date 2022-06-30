@@ -1,0 +1,9 @@
+.DailyFoodSummary {
+  border: 1px solid black;
+  border-radius: 3px;
+  margin-left: 5px;
+  background-color: honeydew;
+  font-size: 15px;
+  padding: 15px;
+  font-style: italic;
+}

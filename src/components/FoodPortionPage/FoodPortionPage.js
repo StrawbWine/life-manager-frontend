@@ -9,6 +9,7 @@ import FoodSelector from "../FoodSelector/FoodSelector"
 import useApi from "../../hooks/useApi"
 import CreateFoodPortionForm from "../CreateFoodPortionForm/CreateFoodPortionForm"
 import FoodPortionContainer from "../FoodPortionContainer/FoodPortionContainer"
+import DailyFoodSummary from "../DailyFoodSummary/DailyFoodSummary";
 
 const FoodPortionPage = () => {
   const API_URL = process.env.REACT_APP_API_URL
@@ -32,9 +33,10 @@ const FoodPortionPage = () => {
       <FoodSelector foodData={foodData} activeFood={activeFood} setActiveFood={setActiveFood} />
       <div className={styles.FoodPortionForms}>
         <CreateFoodPortionForm activeFood={activeFood} getFoodPortionData={getFoodPortionData} />
-        <Calendar onChange={calendarOnChange} value={date} />   
+        <Calendar onChange={calendarOnChange} value={date} />
+        <DailyFoodSummary foodInstances={foodPortionData}/>  
       </div>
-      <FoodPortionContainer foodPortionData={foodPortionData} getFoodPortionData={getFoodPortionData} />         
+      <FoodPortionContainer foodPortionData={foodPortionData} getFoodPortionData={getFoodPortionData} />              
     </div>
   )
 }
