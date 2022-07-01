@@ -7,19 +7,20 @@ import CreateFoodForm from "../CreateFoodForm/CreateFoodForm";
 const FoodPage = () => {
   const API_URL = process.env.REACT_APP_API_URL
 
-  const [foodData, getFoodData, setFoodData] = useApi(`${API_URL}/food`)
+  const [foodData, getFoodData, isLoadingFood] = useApi(`${API_URL}/food`)
   const [activeFood, setActiveFood] = useState(null)
 
   return (
-    <div className="FoodPage">
-      <FoodContainer
-        foodArray={foodData} 
-        getFoods={getFoodData} 
-        activeFood={activeFood} 
-        setActiveFood={setActiveFood}
-      />
-      <CreateFoodForm getFoods={getFoodData} />
-    </div>
+    isLoadingFood ? "Loading food" :
+      <div className="FoodPage">
+        <FoodContainer
+          foodArray={foodData} 
+          getFoods={getFoodData} 
+          activeFood={activeFood} 
+          setActiveFood={setActiveFood}
+        />
+        <CreateFoodForm getFoods={getFoodData} />
+      </div>
   )
 }
 
