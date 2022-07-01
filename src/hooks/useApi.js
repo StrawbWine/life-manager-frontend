@@ -1,23 +1,31 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 
-const useApi = url => {
-  const [data, setData] = useState([])
+const useApi = (url, paramName="") => {
+  const [data, setData] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
-  const fetchData = async () => {
-    try {      
-      const result = await axios.get(url)   
+  const getData = async (paramValue="") => {    
+    let fullUrl = url
+    if (paramName && paramValue) {
+      fullUrl = `${url}?${paramName}=${paramValue}`
+    }
+    try {
+      const result = await axios.get(fullUrl)
       setData(result.data)
     } catch (error) {
-      console.error(error);
+      console.error(error)
+    } finally {
+      setLoading(false)
     }
-  }
+  } 
 
   useEffect(() => {
-    fetchData()
+    getData()
   }, [])
 
-  return [data, fetchData, setData]
+  return [data, getData, loading, error]
 }
 
 export default useApi

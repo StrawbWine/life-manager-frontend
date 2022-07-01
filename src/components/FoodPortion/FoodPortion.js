@@ -4,12 +4,12 @@ import axios from "axios"
 import styles from "./FoodPortion.module.css"
 import DeleteButton from "../Buttons/DeleteButton/DeleteButton"
 
-const FoodPortion = ({ data, getFoodPortionData }) => {
+const FoodPortion = ({ data, getFoodPortionData, date }) => {
   const API_URL = process.env.REACT_APP_API_URL
 
   const deleteFoodPortion = async () => {
     await axios.delete(`${API_URL}/foodportion/${data.id}`)
-    getFoodPortionData()
+    getFoodPortionData(`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`)
   }
 
   return (

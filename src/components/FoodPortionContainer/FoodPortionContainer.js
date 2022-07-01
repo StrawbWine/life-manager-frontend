@@ -3,7 +3,7 @@ import React from "react"
 import styles from "./FoodPortionContainer.module.css"
 import FoodPortion from "../FoodPortion/FoodPortion"
 
-const FoodPortionContainer = ({ foodPortionData, getFoodPortionData }) => {
+const FoodPortionContainer = ({ foodPortionData, getFoodPortionData, date }) => {
   return (
     <div className={styles.FoodPortionContainer}>
       {foodPortionData.map(foodPortion => 
@@ -11,6 +11,7 @@ const FoodPortionContainer = ({ foodPortionData, getFoodPortionData }) => {
           key={foodPortion.id} 
           data={foodPortion} 
           getFoodPortionData={getFoodPortionData} 
+          date={date}
         />)}
     </div>
   )

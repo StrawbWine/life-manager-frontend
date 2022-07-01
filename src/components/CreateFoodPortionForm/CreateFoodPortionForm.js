@@ -2,7 +2,7 @@ import axios from "axios"
 import React from "react"
 import styles from "./CreateFoodPortionForm.module.css"
 
-const CreateFoodPortionForm = ({ activeFood, getFoodPortionData }) => {
+const CreateFoodPortionForm = ({ activeFood, getFoodPortionData, setFoodPortionData, date }) => {
   const API_URL = process.env.REACT_APP_API_URL
 
   const handleSubmit = async event =>  {
@@ -13,7 +13,11 @@ const CreateFoodPortionForm = ({ activeFood, getFoodPortionData }) => {
       dateConsumed: new Date()
     }    
     await axios.post(`${API_URL}/foodportion`, newFoodPortion)
-    getFoodPortionData()
+    // const updatedFoodPortionst = await axios.get(
+    //   `${API_URL}/foodportion?dateConsumed=${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
+    // )
+    // setFoodPortionData(updatedFoodPortions)
+    getFoodPortionData(`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`)
   }
 
   return (

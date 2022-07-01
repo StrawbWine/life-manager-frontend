@@ -4,7 +4,7 @@ import styles from "./DailyFoodSummary.module.css"
 
 const DailyFoodSummary = ({ foodInstances }) => {
 
-  const calculateDailyAmounts = foodInstances => {
+  const calculateDailyAmounts = foodInstances => {    
     if (foodInstances !== null) {
       const dailySummary = {        
         energy: foodInstances.reduce((acc, obj) => acc + (obj.energy || 0.0), 0.0),
@@ -44,7 +44,6 @@ const DailyFoodSummary = ({ foodInstances }) => {
         <li>Total salt: {roundTo(dailySummary.salt, 2)}</li>
         <li>Total fiber: {roundTo(dailySummary.fiber, 2)}</li>
       </ul>
-      {/* {calculateDailyAmounts(foodInstances).energy} */}
     </div>
   )
 }
