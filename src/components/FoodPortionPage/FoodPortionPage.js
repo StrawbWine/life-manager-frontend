@@ -14,10 +14,14 @@ import DailyFoodSummary from "../DailyFoodSummary/DailyFoodSummary";
 const FoodPortionPage = () => {
   const API_URL = process.env.REACT_APP_API_URL
 
+  const [date, setDate] = useState(new Date());
   const [foodData, getFoodData, isLoadingFood] = useApi(`${API_URL}/food`)
   const [activeFood, setActiveFood] = useState(null)
-  const [foodPortionData, getFoodPortionData, isLoadingFoodPortion] = useApi(`${API_URL}/foodportion`, "dateConsumed")
-  const [date, setDate] = useState(new Date());
+  const [foodPortionData, getFoodPortionData, isLoadingFoodPortion] = useApi(
+    `${API_URL}/foodportion`,
+    "dateConsumed",
+    `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`,
+  )  
 
   const calendarOnChange = async date => {
     setDate(date)

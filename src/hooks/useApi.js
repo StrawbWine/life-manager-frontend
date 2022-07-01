@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import axios from "axios"
 
-const useApi = (url, paramName="") => {
+const useApi = (url, paramName="", initialParamValue="") => {
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -22,7 +22,7 @@ const useApi = (url, paramName="") => {
   } 
 
   useEffect(() => {
-    getData()
+    getData(initialParamValue)
   }, [])
 
   return [data, getData, loading, error]
