@@ -1,0 +1,23 @@
+.ViewPanelButtonDisabled {
+  background-color: #4CAF50; /* Green */
+  border: solid 1px black;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.ViewPanelButtonEnabled {
+  background-color: rgb(200, 0, 0, 1); /* Green */
+  border: solid 1px black;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+}

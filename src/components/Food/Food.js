@@ -4,7 +4,7 @@ import React from "react"
 import styles from "./Food.module.css"
 import DeleteButton from "../Buttons/DeleteButton/DeleteButton"
 
-const Food = ({ foodProps, getFoods, setActiveFood, selected }) => {
+const Food = ({ foodProps, getFoods, setActiveFood, selected, viewDetails }) => {
 
   const API_URL = process.env.REACT_APP_API_URL
 
@@ -21,16 +21,21 @@ const Food = ({ foodProps, getFoods, setActiveFood, selected }) => {
     <div className={selected ? styles.FoodSelected : styles.Food} onClick={setActive}>
       <ul className={styles.ul}>
         <li className={styles.Name}>{foodProps.name}</li>
-        <li>Energy: {foodProps.energy}</li>
-        <li>Fat: {foodProps.fat}</li>
-        <li>Saturated fat: {foodProps.saturatedFat}</li>
-        <li>Monounsaturated fat: {foodProps.monoUnsaturatedFat}</li>
-        <li>Polyunsaturated fat: {foodProps.polyUnsaturatedFat}</li>
-        <li>Carbohydrates: {foodProps.carbohydrates}</li>
-        <li>Sugars: {foodProps.sugars}</li>
-        <li>Protein: {foodProps.protein}</li>
-        <li>Salt: {foodProps.salt}</li>
-        <li>Fiber: {foodProps.fiber}</li>
+        {viewDetails &&
+          <div>
+            <li>Energy: {foodProps.energy}</li>
+            <li>Fat: {foodProps.fat}</li>
+            <li>Saturated fat: {foodProps.saturatedFat}</li>
+            <li>Monounsaturated fat: {foodProps.monoUnsaturatedFat}</li>
+            <li>Polyunsaturated fat: {foodProps.polyUnsaturatedFat}</li>
+            <li>Carbohydrates: {foodProps.carbohydrates}</li>
+            <li>Sugars: {foodProps.sugars}</li>
+            <li>Protein: {foodProps.protein}</li>
+            <li>Salt: {foodProps.salt}</li>
+            <li>Fiber: {foodProps.fiber}</li>
+          </div>
+        }
+
       </ul>
       <DeleteButton onClick={deleteFood} />
     </div>
