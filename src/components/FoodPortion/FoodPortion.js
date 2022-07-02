@@ -14,6 +14,7 @@ const FoodPortion = ({ data, getFoodPortionData, date }) => {
 
   return (
     <div className={styles.FoodPortion}>
+      <h4>{data.food.name}</h4>
       <ul className={styles.ul}>
         <li className={styles.Id}>
           <label>Id: </label>
