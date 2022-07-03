@@ -13,15 +13,17 @@ const FoodContainer = ({ foodArray, getFoods, activeFood, setActiveFood }) => {
   return (
     <div className={styles.FoodContainer}>
       <ViewPanel view={viewDetails} toggleViewDetails={toggleViewDetails}/>
-      {foodArray.map(foodProps =>
-        <Food 
-          key={foodProps.id} 
-          foodProps={foodProps} 
-          getFoods={getFoods}
-          selected={activeFood === foodProps.id}
-          setActiveFood={setActiveFood}   
-          viewDetails={viewDetails}       
-        />)}
+      <div className={styles.FoodList}>
+        {foodArray.map(foodProps =>
+          <Food 
+            key={foodProps.id} 
+            foodProps={foodProps} 
+            getFoods={getFoods}
+            selected={activeFood === foodProps.id}
+            setActiveFood={setActiveFood}   
+            viewDetails={viewDetails}       
+          />)}
+      </div>
     </div>
   )
 }

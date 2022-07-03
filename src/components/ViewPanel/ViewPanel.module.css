@@ -8,6 +8,7 @@
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
+  margin: 3px;
 }
 
 .ViewPanelButtonEnabled {
@@ -20,4 +21,5 @@
   text-decoration: none;
   display: inline-block;
   font-size: 14px;
+  margin: 3px;
 }

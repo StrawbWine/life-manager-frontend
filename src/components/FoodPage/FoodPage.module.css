@@ -1,0 +1,4 @@
+.FoodPage {
+  display: flex;
+  flex-direction: row;
+}

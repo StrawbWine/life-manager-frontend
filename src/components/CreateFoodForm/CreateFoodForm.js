@@ -27,8 +27,9 @@ const CreateFoodForm = ({ getFoods }) => {
   }
 
   return (
-    <>
+    <>      
       <form className={styles.Form} onSubmit={handleSubmit} >
+        <h4 className={styles.FormTitle}>Add new food</h4>
         <label>Name:</label>
         <input type="text" name="name" id="name-input" />
         <label>Energy:</label>
@@ -51,7 +52,7 @@ const CreateFoodForm = ({ getFoods }) => {
         <input type="text" name="salt" id="salt-input" />
         <label>Fiber:</label>
         <input type="text" name="fiber" id="fiber-input" />
-        <input type="submit" value="Add new food" />
+        <input className={styles.SubmitButton} type="submit" value="Add new food" />
       </form>
     </>
 

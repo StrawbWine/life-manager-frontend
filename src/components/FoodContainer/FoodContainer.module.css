@@ -1,4 +1,8 @@
 .FoodContainer {
+
+}
+
+.FoodList {
   display: flex;
   flex-wrap: wrap;  
 }
