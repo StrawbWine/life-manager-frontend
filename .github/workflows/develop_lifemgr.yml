@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v2
@@ -21,21 +21,17 @@ jobs:
         with:
           node-version: '16.x'
 
-      # Zip artifacts to speed things up
-      - name: Zip artifact for deployment
-        run: zip -r release.zip *
-
-      # - name: npm install, build, and test
-      #   run: |
-      #     npm install
-      #     npm run build --if-present
-      #     npm run test --if-present
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build --if-present
+          npm run test --if-present
       
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: release.zip
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
@@ -57,4 +53,4 @@ jobs:
           app-name: 'lifemgr'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_27D04BAD1B554DD39A96ADC1101F27ED }}
-          package: release.zip
+          package: .
