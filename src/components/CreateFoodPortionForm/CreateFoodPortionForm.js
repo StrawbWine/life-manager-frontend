@@ -1,6 +1,7 @@
 import axios from "axios"
 import React from "react"
 import styles from "./CreateFoodPortionForm.module.css"
+import DateToString from "../../utils/DateParser"
 
 const CreateFoodPortionForm = ({ activeFood, getFoodPortionData, setFoodPortionData, date }) => {
   const API_URL = process.env.REACT_APP_API_URL
@@ -10,14 +11,10 @@ const CreateFoodPortionForm = ({ activeFood, getFoodPortionData, setFoodPortionD
     const newFoodPortion = {
       foodId: activeFood,
       weightInGrams: document.getElementById("weight-input").value,
-      dateConsumed: new Date()
+      dateConsumed: DateToString(new Date())
     }    
     await axios.post(`${API_URL}/foodportion`, newFoodPortion)
-    // const updatedFoodPortionst = await axios.get(
-    //   `${API_URL}/foodportion?dateConsumed=${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`
-    // )
-    // setFoodPortionData(updatedFoodPortions)
-    getFoodPortionData(`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`)
+    getFoodPortionData(DateToString(date))
   }
 
   return (

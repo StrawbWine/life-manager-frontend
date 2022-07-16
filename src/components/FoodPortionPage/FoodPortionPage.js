@@ -10,6 +10,7 @@ import useApi from "../../hooks/useApi"
 import CreateFoodPortionForm from "../CreateFoodPortionForm/CreateFoodPortionForm"
 import FoodPortionContainer from "../FoodPortionContainer/FoodPortionContainer"
 import DailyFoodSummary from "../DailyFoodSummary/DailyFoodSummary";
+import DateToString from "../../utils/DateParser";
 
 const FoodPortionPage = () => {
   const API_URL = process.env.REACT_APP_API_URL
@@ -20,12 +21,12 @@ const FoodPortionPage = () => {
   const [foodPortionData, getFoodPortionData, isLoadingFoodPortion] = useApi(
     `${API_URL}/foodportion`,
     "dateConsumed",
-    `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`,
+    DateToString(date),
   )  
 
   const calendarOnChange = async date => {
     setDate(date)
-    getFoodPortionData(`${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`)
+    getFoodPortionData(DateToString(date))
   }
 
   return (
