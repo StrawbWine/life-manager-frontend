@@ -4,9 +4,9 @@ import useApi from "../../hooks/useApi";
 import FoodContainer from "../FoodContainer/FoodContainer";
 import CreateFoodForm from "../CreateFoodForm/CreateFoodForm";
 import styles from "./FoodPage.module.css"
+import API_URL from "../../constants";
 
 const FoodPage = () => {
-  const API_URL = process.env.REACT_APP_API_URL
 
   const [foodData, getFoodData, isLoadingFood] = useApi(`${API_URL}/food`)
   const [activeFood, setActiveFood] = useState(null)

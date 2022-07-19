@@ -4,9 +4,9 @@ import axios from "axios"
 import styles from "./FoodPortion.module.css"
 import DeleteButton from "../Buttons/DeleteButton/DeleteButton"
 import DateToString from "../../utils/DateParser"
+import API_URL from "../../constants"
 
 const FoodPortion = ({ data, getFoodPortionData, date }) => {
-  const API_URL = process.env.REACT_APP_API_URL
 
   const deleteFoodPortion = async () => {
     await axios.delete(`${API_URL}/foodportion/${data.id}`)

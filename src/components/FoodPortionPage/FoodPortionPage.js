@@ -11,10 +11,9 @@ import CreateFoodPortionForm from "../CreateFoodPortionForm/CreateFoodPortionFor
 import FoodPortionContainer from "../FoodPortionContainer/FoodPortionContainer"
 import DailyFoodSummary from "../DailyFoodSummary/DailyFoodSummary";
 import DateToString from "../../utils/DateParser";
+import API_URL from "../../constants";
 
 const FoodPortionPage = () => {
-  const API_URL = process.env.REACT_APP_API_URL
-
   const [date, setDate] = useState(new Date());
   const [foodData, getFoodData, isLoadingFood] = useApi(`${API_URL}/food`)
   const [activeFood, setActiveFood] = useState(null)

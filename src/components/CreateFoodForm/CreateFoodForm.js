@@ -2,11 +2,10 @@ import axios from "axios"
 import React from "react"
 
 import styles from "./CreateFoodForm.module.css"
+import API_URL from "../../constants"
 
 const CreateFoodForm = ({ getFoods }) => {
-
-  const API_URL = process.env.REACT_APP_API_URL
-
+  
   const handleSubmit = async event => {
     event.preventDefault()
     const newFood = {

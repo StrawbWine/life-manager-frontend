@@ -2,9 +2,9 @@ import axios from "axios"
 import React from "react"
 import styles from "./CreateFoodPortionForm.module.css"
 import DateToString from "../../utils/DateParser"
+import API_URL from "../../constants"
 
 const CreateFoodPortionForm = ({ activeFood, getFoodPortionData, setFoodPortionData, date }) => {
-  const API_URL = process.env.REACT_APP_API_URL
 
   const handleSubmit = async event =>  {
     event.preventDefault()

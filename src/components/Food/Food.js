@@ -3,10 +3,9 @@ import React from "react"
 
 import styles from "./Food.module.css"
 import DeleteButton from "../Buttons/DeleteButton/DeleteButton"
+import API_URL from "../../constants"
 
 const Food = ({ foodProps, getFoods, setActiveFood, selected, viewDetails }) => {
-
-  const API_URL = process.env.REACT_APP_API_URL
 
   const deleteFood = async () => {
     await axios.delete(`${API_URL}/food/${foodProps.id}`)
