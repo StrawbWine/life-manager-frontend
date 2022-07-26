@@ -3,23 +3,9 @@ import PropTypes from "prop-types"
 import API_URL from "../../constants"
 import axios from "axios"
 
-// import "./Login.css"
-
-// async function loginUser(credentials) {
-//   return fetch(`${API_URL}/authenticate`, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(credentials),
-//   // }).then(data => data.json())
-//     })
-// }
-
 const loginUser = async credentials => {
   const response = await axios.post(`${API_URL}/authenticate`, credentials)
   const token = response.data
-  console.log(token)
   return token
 }
 
@@ -28,14 +14,11 @@ export default function Login({ setToken }) {
   const [password, setPassword] = useState()
 
   const handleSubmit = async e => {
-    console.log(username)
-    console.log(password)
     e.preventDefault()
     const token = await loginUser({
       username,
       password,
     })
-    console.log("Login function", token)
     setToken(token)
   }
 
