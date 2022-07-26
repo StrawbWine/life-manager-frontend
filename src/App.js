@@ -4,15 +4,23 @@ import './App.css';
 import Navbar from "./components/Navbar/Navbar";
 import FoodPage from "./components/FoodPage/FoodPage";
 import FoodPortionPage from "./components/FoodPortionPage/FoodPortionPage";
+import useToken from "./hooks/useToken";
+import LoginPage from "./components/LoginPage/LoginPage";
 
 function App() {
+  const [token, setToken] = useToken()
+
+  if (!token) {
+    return <LoginPage setToken={setToken} />
+  }
+
   return (
     <Router>
       <div className="App">
         <Navbar />
         <Routes>
-          <Route path="/food" element={<FoodPage />} />
-          <Route path="/foodportion" element={<FoodPortionPage />} />
+          <Route path="/food" element={<FoodPage token={token} />} />
+          <Route path="/foodportion" element={<FoodPortionPage token={token} />} />
         </Routes>
       </div>
     </Router>
