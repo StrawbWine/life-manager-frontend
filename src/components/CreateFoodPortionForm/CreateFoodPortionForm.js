@@ -4,7 +4,7 @@ import styles from "./CreateFoodPortionForm.module.css"
 import DateToString from "../../utils/DateParser"
 import API_URL from "../../constants"
 
-const CreateFoodPortionForm = ({ activeFood, getFoodPortionData, setFoodPortionData, date }) => {
+const CreateFoodPortionForm = ({ activeFood, getFoodPortionData, setFoodPortionData, date, token }) => {
 
   const handleSubmit = async event =>  {
     event.preventDefault()
@@ -12,8 +12,11 @@ const CreateFoodPortionForm = ({ activeFood, getFoodPortionData, setFoodPortionD
       foodId: activeFood,
       weightInGrams: document.getElementById("weight-input").value,
       dateConsumed: DateToString(new Date())
-    }    
-    await axios.post(`${API_URL}/foodportion`, newFoodPortion)
+    }
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    }
+    await axios.post(`${API_URL}/foodportion`, newFoodPortion, config)
     getFoodPortionData(DateToString(date))
   }
 

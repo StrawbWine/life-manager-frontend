@@ -8,7 +8,7 @@ const useApi = (url, token="", paramName="", initialParamValue="") => {
 
   const config = {
     headers: { Authorization: `Bearer ${token}` }
-  };
+  }
 
   const getData = async (paramValue="") => {    
     let fullUrl = url

@@ -14,12 +14,13 @@ const FoodPage = ({ token }) => {
   return (
     isLoadingFood ? "Loading food" :
       <div className={styles.FoodPage}>
-        <CreateFoodForm getFoods={getFoodData} />
+        <CreateFoodForm getFoods={getFoodData} token={token} />
         <FoodContainer
           foodArray={foodData} 
           getFoods={getFoodData} 
           activeFood={activeFood} 
           setActiveFood={setActiveFood}
+          token={token}
         />        
       </div>
   )

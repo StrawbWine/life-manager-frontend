@@ -5,10 +5,13 @@ import styles from "./Food.module.css"
 import DeleteButton from "../Buttons/DeleteButton/DeleteButton"
 import API_URL from "../../constants"
 
-const Food = ({ foodProps, getFoods, setActiveFood, selected, viewDetails }) => {
+const Food = ({ foodProps, getFoods, setActiveFood, selected, viewDetails, token }) => {
 
   const deleteFood = async () => {
-    await axios.delete(`${API_URL}/food/${foodProps.id}`)
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    }
+    await axios.delete(`${API_URL}/food/${foodProps.id}`, config)
     getFoods()
   }
 

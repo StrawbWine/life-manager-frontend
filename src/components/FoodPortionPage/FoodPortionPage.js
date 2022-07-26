@@ -39,6 +39,7 @@ const FoodPortionPage = ({ token }) => {
               activeFood={activeFood} 
               getFoodPortionData={getFoodPortionData}              
               date={date}
+              token={token}
             />
             <Calendar onChange={calendarOnChange} value={date} />
             <DailyFoodSummary foodInstances={foodPortionData}/>  
@@ -47,6 +48,7 @@ const FoodPortionPage = ({ token }) => {
             foodPortionData={foodPortionData} 
             getFoodPortionData={getFoodPortionData}
             date={date}
+            token={token}
           />   
         </>
       }

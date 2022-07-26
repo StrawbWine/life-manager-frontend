@@ -6,10 +6,13 @@ import DeleteButton from "../Buttons/DeleteButton/DeleteButton"
 import DateToString from "../../utils/DateParser"
 import API_URL from "../../constants"
 
-const FoodPortion = ({ data, getFoodPortionData, date }) => {
+const FoodPortion = ({ data, getFoodPortionData, date, token }) => {
 
   const deleteFoodPortion = async () => {
-    await axios.delete(`${API_URL}/foodportion/${data.id}`)
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    }
+    await axios.delete(`${API_URL}/foodportion/${data.id}`, config)
     getFoodPortionData(DateToString(date))
   }
 

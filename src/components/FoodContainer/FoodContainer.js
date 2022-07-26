@@ -3,7 +3,7 @@ import Food from "../Food/Food"
 import styles from "./FoodContainer.module.css"
 import ViewPanel from "../ViewPanel/ViewPanel"
 
-const FoodContainer = ({ foodArray, getFoods, activeFood, setActiveFood }) => {
+const FoodContainer = ({ foodArray, getFoods, activeFood, setActiveFood, token }) => {
   const [viewDetails, setViewDetails] = useState(false)
 
   const toggleViewDetails = () => {
@@ -21,7 +21,8 @@ const FoodContainer = ({ foodArray, getFoods, activeFood, setActiveFood }) => {
             getFoods={getFoods}
             selected={activeFood === foodProps.id}
             setActiveFood={setActiveFood}   
-            viewDetails={viewDetails}       
+            viewDetails={viewDetails}
+            token={token}   
           />)}
       </div>
     </div>

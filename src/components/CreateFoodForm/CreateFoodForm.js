@@ -4,7 +4,7 @@ import React from "react"
 import styles from "./CreateFoodForm.module.css"
 import API_URL from "../../constants"
 
-const CreateFoodForm = ({ getFoods }) => {
+const CreateFoodForm = ({ getFoods, token }) => {
   
   const handleSubmit = async event => {
     event.preventDefault()
@@ -20,8 +20,11 @@ const CreateFoodForm = ({ getFoods }) => {
       protein: document.getElementById("protein-input").value || null,
       salt: document.getElementById("salt-input").value || null,
       fiber: document.getElementById("fiber-input").value || null
-    }    
-    await axios.post(`${API_URL}/food`, newFood)
+    }
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    }
+    await axios.post(`${API_URL}/food`, newFood, config)
     getFoods()   
   }
 
