@@ -6,9 +6,9 @@ import CreateFoodForm from "../CreateFoodForm/CreateFoodForm";
 import styles from "./FoodPage.module.css"
 import API_URL from "../../constants";
 
-const FoodPage = () => {
+const FoodPage = ({ token }) => {
 
-  const [foodData, getFoodData, isLoadingFood] = useApi(`${API_URL}/food`)
+  const [foodData, getFoodData, isLoadingFood] = useApi(`${API_URL}/food`, token)
   const [activeFood, setActiveFood] = useState(null)
 
   return (

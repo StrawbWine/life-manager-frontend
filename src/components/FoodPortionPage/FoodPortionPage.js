@@ -13,14 +13,15 @@ import DailyFoodSummary from "../DailyFoodSummary/DailyFoodSummary";
 import DateToString from "../../utils/DateParser";
 import API_URL from "../../constants";
 
-const FoodPortionPage = () => {
+const FoodPortionPage = ({ token }) => {
   const [date, setDate] = useState(new Date());
-  const [foodData, getFoodData, isLoadingFood] = useApi(`${API_URL}/food`)
+  const [foodData, getFoodData, isLoadingFood] = useApi(`${API_URL}/food`, token)
   const [activeFood, setActiveFood] = useState(null)
   const [foodPortionData, getFoodPortionData, isLoadingFoodPortion] = useApi(
     `${API_URL}/foodportion`,
+    token,
     "dateConsumed",
-    DateToString(date),
+    DateToString(date)
   )  
 
   const calendarOnChange = async date => {
