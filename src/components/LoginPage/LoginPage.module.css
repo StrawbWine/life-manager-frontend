@@ -1,0 +1,49 @@
+.LoginPage {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: auto;
+  width: 50%;
+  text-align: center;
+}
+
+input {
+  width: 75%;
+  max-width: 200px;
+}
+
+.LoginTitle {
+
+}
+
+.LoginForm {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 50%;
+  margin: auto;
+  border: solid 1px black;
+  padding: 10px;
+  border-radius: 5px;
+  min-width: 16vw;
+  max-width: 400px;
+  background-color: rgb(211, 246, 248);
+}
+
+.LoginLabel {
+  text-align: center;
+}
+
+.LoginButton {
+  background-color: #4CAF50;
+  border: solid 1px black;
+  border-radius: 5px;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
