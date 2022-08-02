@@ -14,7 +14,7 @@ const CreateFoodPortionForm = ({ activeFood, getFoodPortionData, setFoodPortionD
     const newFoodPortion = {
       foodId: activeFood,
       weightInGrams: document.getElementById("weight-input").value,
-      dateConsumed: DateToString(new Date())
+      dateConsumed: DateToString(date)
     }
     const config = {
       headers: { Authorization: `Bearer ${token}` }
