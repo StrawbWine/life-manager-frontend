@@ -1,17 +1,26 @@
 import axios from "axios"
 import React from "react"
+import { useNavigate } from "react-router-dom"
 
 import styles from "./Food.module.css"
 import DeleteButton from "../Buttons/DeleteButton/DeleteButton"
 import API_URL from "../../constants"
 
 const Food = ({ foodProps, getFoods, setActiveFood, selected, viewDetails, token }) => {
+  const navigate = useNavigate()
 
   const deleteFood = async () => {
     const config = {
       headers: { Authorization: `Bearer ${token}` }
     }
-    await axios.delete(`${API_URL}/food/${foodProps.id}`, config)
+    try {
+      await axios.delete(`${API_URL}/food/${foodProps.id}`, config)
+    } catch (error) {
+      console.log(error.message)
+      if (error.response.status === 401) {
+        navigate("/login")
+      }     
+    }
     getFoods()
   }
 

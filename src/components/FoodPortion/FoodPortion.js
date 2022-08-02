@@ -1,5 +1,6 @@
 import React from "react"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 import styles from "./FoodPortion.module.css"
 import DeleteButton from "../Buttons/DeleteButton/DeleteButton"
@@ -7,12 +8,20 @@ import DateToString from "../../utils/DateParser"
 import API_URL from "../../constants"
 
 const FoodPortion = ({ data, getFoodPortionData, date, token }) => {
+  const navigate = useNavigate()
 
   const deleteFoodPortion = async () => {
     const config = {
       headers: { Authorization: `Bearer ${token}` }
     }
-    await axios.delete(`${API_URL}/foodportion/${data.id}`, config)
+    try {
+      await axios.delete(`${API_URL}/foodportion/${data.id}`, config)
+    } catch (error) {
+      console.log(error.message)
+      if (error.response.status === 401) {
+        navigate("/login")
+      }     
+    }
     getFoodPortionData(DateToString(date))
   }
 

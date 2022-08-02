@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import styles from "./Navbar.module.css"
 import NavbarButton from "../Buttons/NavbarButton/NavbarButton"
 
-const Navbar = () => {
+const Navbar = ({ logout }) => {
   const [active, setActive] = useState(null)
 
   const linkStyle = {
@@ -33,7 +33,12 @@ const Navbar = () => {
               setActive={setActive}
             />
           </li> 
-        </Link>       
+        </Link>
+        <Link to="/login" style={linkStyle}>
+          <li onClick={logout}>
+            Logout
+          </li>
+        </Link>      
       </ul>
     </div>
   )

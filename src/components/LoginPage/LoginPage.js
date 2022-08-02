@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import API_URL from "../../constants"
 import axios from "axios"
 import styles from "./LoginPage.module.css"
+import { useNavigate } from "react-router-dom"
 
 const loginUser = async credentials => {
   const response = await axios.post(`${API_URL}/authenticate`, credentials)
@@ -10,7 +11,8 @@ const loginUser = async credentials => {
   return token
 }
 
-export default function Login({ setToken }) {
+export default function LoginPage({ setToken }) {
+  const navigate = useNavigate()
   const [username, setUserName] = useState()
   const [password, setPassword] = useState()
 
@@ -21,6 +23,7 @@ export default function Login({ setToken }) {
       password,
     })
     setToken(token)
+    navigate("/food")
   }
 
   return (
@@ -43,6 +46,6 @@ export default function Login({ setToken }) {
   )
 }
 
-Login.propTypes = {
+LoginPage.propTypes = {
   setToken: PropTypes.func.isRequired,
 }

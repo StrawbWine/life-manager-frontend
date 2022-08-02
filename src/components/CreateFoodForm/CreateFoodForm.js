@@ -1,12 +1,14 @@
 import axios from "axios"
 import React from "react"
+import { useNavigate } from "react-router-dom"
 
 import styles from "./CreateFoodForm.module.css"
 import API_URL from "../../constants"
 
 const CreateFoodForm = ({ getFoods, token }) => {
+  const navigate = useNavigate()
   
-  const handleSubmit = async event => {
+  const handleSubmit = async event => {     
     event.preventDefault()
     const newFood = {
       name: document.getElementById("name-input").value || null,
@@ -24,8 +26,15 @@ const CreateFoodForm = ({ getFoods, token }) => {
     const config = {
       headers: { Authorization: `Bearer ${token}` }
     }
-    await axios.post(`${API_URL}/food`, newFood, config)
-    getFoods()   
+    try {
+      await axios.post(`${API_URL}/food`, newFood, config)      
+    } catch (error) {
+      console.log(error.message)
+      if (error.response.status === 401) {
+        navigate("/login")
+      }     
+    }
+    getFoods()
   }
 
   return (

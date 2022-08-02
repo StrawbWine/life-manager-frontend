@@ -1,10 +1,13 @@
 import axios from "axios"
 import React from "react"
+import { useNavigate } from "react-router-dom"
+
 import styles from "./CreateFoodPortionForm.module.css"
 import DateToString from "../../utils/DateParser"
 import API_URL from "../../constants"
 
 const CreateFoodPortionForm = ({ activeFood, getFoodPortionData, setFoodPortionData, date, token }) => {
+  const navigate = useNavigate()
 
   const handleSubmit = async event =>  {
     event.preventDefault()
@@ -16,7 +19,14 @@ const CreateFoodPortionForm = ({ activeFood, getFoodPortionData, setFoodPortionD
     const config = {
       headers: { Authorization: `Bearer ${token}` }
     }
-    await axios.post(`${API_URL}/foodportion`, newFoodPortion, config)
+    try {
+      await axios.post(`${API_URL}/foodportion`, newFoodPortion, config)
+    } catch (error) {
+      console.log(error.message)
+      if (error.response.status === 401) {
+        navigate("/login")
+      }     
+    }
     getFoodPortionData(DateToString(date))
   }
 
